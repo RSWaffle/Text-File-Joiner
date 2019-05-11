@@ -1,4 +1,12 @@
-﻿
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	File Name:        frmMain.cs
+//	Description:       This class gathers all of the user input and works with the File Handler class to convert.
+//
+//	Author:            Ryan Shupe, shuper@etsu.edu, East Tennessee State University
+//	Created:           Friday May 10, 2019
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 using System;
 using System.Windows.Forms;
 
@@ -86,6 +94,24 @@ namespace TextFileJoiner
         private void numSpaces_ValueChanged(object sender, EventArgs e)
         {
             handler.SetNumOfSpaces((int)numSpaces.Value);
+        }
+
+        /// <summary>
+        /// This method checks to see if the tick box is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void deleteFilesBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (deleteFilesBox.Checked)
+            {
+                handler.SetDeleteFiles(true);
+            }
+            else
+            {
+                handler.SetDeleteFiles(false);
+            }
+            
         }
     }
 }

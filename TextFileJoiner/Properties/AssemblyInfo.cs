@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This program takes in multiple text files and combines them into one while " +
     "keeping the formatting. This program is open source and available on GitHub at: https://github.com/RSWaffle/Text-File-Joiner")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Shupe")]
+[assembly: AssemblyCompany("rswaffle.com")]
 [assembly: AssemblyProduct("Text File Joiner")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

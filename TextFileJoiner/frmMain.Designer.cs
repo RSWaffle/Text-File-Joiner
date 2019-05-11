@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
             this.numberLabel = new System.Windows.Forms.Label();
             this.readyLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numSpaces = new System.Windows.Forms.NumericUpDown();
+            this.deleteFilesBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSpaces)).BeginInit();
             this.SuspendLayout();
@@ -80,8 +82,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem1,
-            this.checkForUpdatesToolStripMenuItem});
+            this.aboutToolStripMenuItem1});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.aboutToolStripMenuItem.Text = "Help";
@@ -89,16 +90,9 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates";
-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // btnOpen
             // 
@@ -132,7 +126,7 @@
             // readyLabel
             // 
             this.readyLabel.AutoSize = true;
-            this.readyLabel.Location = new System.Drawing.Point(91, 88);
+            this.readyLabel.Location = new System.Drawing.Point(91, 112);
             this.readyLabel.Name = "readyLabel";
             this.readyLabel.Size = new System.Drawing.Size(88, 13);
             this.readyLabel.TabIndex = 6;
@@ -165,11 +159,32 @@
             0});
             this.numSpaces.ValueChanged += new System.EventHandler(this.numSpaces_ValueChanged);
             // 
+            // deleteFilesBox
+            // 
+            this.deleteFilesBox.AutoSize = true;
+            this.deleteFilesBox.Location = new System.Drawing.Point(149, 89);
+            this.deleteFilesBox.Name = "deleteFilesBox";
+            this.deleteFilesBox.Size = new System.Drawing.Size(15, 14);
+            this.deleteFilesBox.TabIndex = 10;
+            this.deleteFilesBox.UseVisualStyleBackColor = true;
+            this.deleteFilesBox.CheckedChanged += new System.EventHandler(this.deleteFilesBox_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Delete original files:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 110);
+            this.ClientSize = new System.Drawing.Size(265, 134);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.deleteFilesBox);
             this.Controls.Add(this.numSpaces);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.readyLabel);
@@ -178,6 +193,7 @@
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -202,10 +218,11 @@
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Label numberLabel;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.Label readyLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numSpaces;
+        private System.Windows.Forms.CheckBox deleteFilesBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -1,4 +1,14 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	File Name:         FileHandler.cs
+//	Description:       This class Creates and opens files and handles the conversion.
+//
+//	Author:            Ryan Shupe, shuper@etsu.edu, East Tennessee State University
+//	Created:           Friday May 10, 2019
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -11,13 +21,21 @@ namespace TextFileJoiner
         private string saveDestination = "";
         private int numberOfSpaces;
         private string spaces = "";
+        private bool deleteOriginalFiles;
 
+        /// <summary>
+        /// Basic no argument constructor.
+        /// </summary>
         public FileHandler()
         {
             fileNames = new List<string>();
             SetNumOfSpaces(1);
         }
 
+        /// <summary>
+        /// This method sets the number of spaces in between each text file in the output
+        /// </summary>
+        /// <param name="spaces"></param>
         public void SetNumOfSpaces(int spaces)
         {
             numberOfSpaces = spaces;
@@ -28,6 +46,18 @@ namespace TextFileJoiner
             }
         }
 
+        /// <summary>
+        /// This sets if the handler will delete the original files or not.
+        /// </summary>
+        /// <param name="inBool"></param>
+        public void SetDeleteFiles(bool inBool)
+        {
+            deleteOriginalFiles = inBool;
+        }
+
+        /// <summary>
+        /// This method copys the text from the selected files and adds them to the new file created.
+        /// </summary>
         public void Convert()
         {
             string content = "";
@@ -36,8 +66,25 @@ namespace TextFileJoiner
             {
                 content += File.ReadAllText(fileNames[i]) + spaces;
             }
+            try
+            {
+                File.AppendAllText(saveDestination, content);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Failed. Save Dialog was probably closed without selecting a file.");
+            }
 
-            File.AppendAllText(saveDestination, content);
+            if (deleteOriginalFiles)
+            {
+                for (int i = 0; i < fileNames.Count; i++)
+                {
+                    File.Delete(fileNames[i]);
+                }
+
+                fileNames.Clear();
+            }
+            
         }
 
         /// <summary>
