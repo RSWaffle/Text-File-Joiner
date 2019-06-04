@@ -15,6 +15,7 @@ namespace TextFileJoiner
     public partial class frmMain : Form
     {
         private FileHandler handler = new FileHandler();
+
         /// <summary>
         /// basic no argument constructor.
         /// </summary>
@@ -30,14 +31,15 @@ namespace TextFileJoiner
         /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            numberLabel.Text = "Number of files to be converted: " +
+            numberLabel.Text = "Number of files to be joined: " +
                     handler.OpenFileHandler().ToString();
 
-            if (numberLabel.Text != "Number of files to be converted: 0")
+            if (numberLabel.Text != "Number of files to be joined: 0")
             {
-                readyLabel.Text = "Ready to convert!";
+                readyLabel.Text = "Ready to join files!";
             }
         }
+
         /// <summary>
         /// This opens the about box that displays info about the program.
         /// </summary>
@@ -48,6 +50,7 @@ namespace TextFileJoiner
             frmAbout about = new frmAbout();
             about.ShowDialog();
         }
+
         /// <summary>
         /// This button executes the check for updates.
         /// </summary>
@@ -64,14 +67,15 @@ namespace TextFileJoiner
         /// <param name="e"></param>
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            numberLabel.Text = "Number of files to be converted: " +
+            numberLabel.Text = "Number of files to be joined: " +
                                 handler.OpenFileHandler().ToString();
 
-            if (numberLabel.Text != "Number of files to be converted: 0")
+            if (numberLabel.Text != "Number of files to be joined: 0")
             {
-                readyLabel.Text = "Ready to convert!";
+                readyLabel.Text = "Ready to join files!";
             }
         }
+
         /// <summary>
         /// This method converts the selected files into one.
         /// </summary>
@@ -79,11 +83,30 @@ namespace TextFileJoiner
         /// <param name="e"></param>
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            handler.SaveFileHandler();
-            handler.Convert();
+            if (handler.getNumFiles() == 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("They're no files selected to be joined. Are you sure you want to write a blank file?", "Write a blank file?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    handler.SaveFileHandler();
+                    handler.Convert();
 
-            numberLabel.Text = "Number of files to be converted: 0";
-            readyLabel.Text = "Waiting for files...";
+                    numberLabel.Text = "Number of files to be joined: 0";
+                    readyLabel.Text = "Waiting for files...";
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    handler.SaveFileHandler();
+                    handler.Convert();
+
+                    numberLabel.Text = "Number of files to be joined: 0";
+                    readyLabel.Text = "Waiting for files...";
+                }
+            }
         }
 
         /// <summary>
@@ -111,7 +134,6 @@ namespace TextFileJoiner
             {
                 handler.SetDeleteFiles(false);
             }
-            
         }
     }
 }

@@ -90,7 +90,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -110,18 +110,18 @@
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(109, 21);
             this.btnConvert.TabIndex = 4;
-            this.btnConvert.Text = "Convert";
+            this.btnConvert.Text = "Join";
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // numberLabel
             // 
             this.numberLabel.AutoSize = true;
-            this.numberLabel.Location = new System.Drawing.Point(45, 24);
+            this.numberLabel.Location = new System.Drawing.Point(55, 24);
             this.numberLabel.Name = "numberLabel";
-            this.numberLabel.Size = new System.Drawing.Size(170, 13);
+            this.numberLabel.Size = new System.Drawing.Size(150, 13);
             this.numberLabel.TabIndex = 5;
-            this.numberLabel.Text = "Number of files to be converted:  0";
+            this.numberLabel.Text = "Number of files to be joined:  0";
             // 
             // readyLabel
             // 
@@ -135,15 +135,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 64);
+            this.label1.Location = new System.Drawing.Point(50, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Set the number of spaces: ";
+            this.label1.Text = "# of lines to insert:";
             // 
             // numSpaces
             // 
-            this.numSpaces.Location = new System.Drawing.Point(176, 62);
+            this.numSpaces.Location = new System.Drawing.Point(149, 67);
             this.numSpaces.Maximum = new decimal(new int[] {
             10,
             0,

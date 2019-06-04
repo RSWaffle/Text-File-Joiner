@@ -56,6 +56,15 @@ namespace TextFileJoiner
         }
 
         /// <summary>
+        /// this method returns the number of files ready to be joined.
+        /// </summary>
+        /// <returns>int number of files to be joined.</returns>
+        public int getNumFiles()
+        {
+            return fileNames.Count;
+        }
+
+        /// <summary>
         /// This method copys the text from the selected files and adds them to the new file created.
         /// </summary>
         public void Convert()
@@ -68,7 +77,8 @@ namespace TextFileJoiner
             }
             try
             {
-                File.AppendAllText(saveDestination, content);
+                File.WriteAllText(saveDestination, content);
+                content = "";
             }
             catch (Exception)
             {
@@ -84,6 +94,8 @@ namespace TextFileJoiner
 
                 fileNames.Clear();
             }
+
+            fileNames.Clear();
             
         }
 
