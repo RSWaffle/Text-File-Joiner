@@ -96,7 +96,6 @@ namespace TextFileJoiner
             }
 
             fileNames.Clear();
-            
         }
 
         /// <summary>
